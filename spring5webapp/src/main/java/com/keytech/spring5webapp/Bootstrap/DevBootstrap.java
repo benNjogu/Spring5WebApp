@@ -28,9 +28,15 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent>{
 
 	private void initData() {
 		
+		Publisher publisher = new Publisher();
+		publisher.setAddress("LHJDFG9785");
+		publisher.setName("LongHorn");
+		
+		publisherRepository.save(publisher);
+		
 		//Eric
 		Author eric = new Author("Eric", "Kinuthia");
-		Book ddd = new Book("Domain driven design", "1234");
+		Book ddd = new Book("Domain driven design", "1234", publisher);
 		eric.getBooks().add(ddd);
 		ddd.getAuthors().add(eric);
 		
@@ -39,25 +45,11 @@ public class DevBootstrap implements ApplicationListener<ContextRefreshedEvent>{
 		
 		//Rod
 		Author rod = new Author("Rod", "Johnson");
-		Book noEJB = new Book("J2EE Development without EJB", "234444");
+		Book noEJB = new Book("J2EE Development without EJB", "234444", publisher);
 		rod.getBooks().add(noEJB);
 		
 		authorRepository.save(rod);
 		bookRepository.save(noEJB);
-		
-		Publisher klb = new Publisher("KLB Publishers", "SomewhereInNairobi78543");
-		Book klbPhysics = new Book("KlbPhysics", "67878345787");
-		klb.getBooks().add(klbPhysics);
-		
-		bookRepository.save(klbPhysics);
-		publisherRepository.save(klb);
-		
-		Publisher longHorn = new Publisher("LongHorn Publishers", "SomewhereInNairobi789");
-		Book chemBook = new Book("Longhorn Chemistry", "675787");
-		longHorn.getBooks().add(chemBook);
-		
-		bookRepository.save(chemBook);
-		publisherRepository.save(longHorn);
 		
 	}
 

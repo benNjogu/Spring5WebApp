@@ -7,5 +7,4 @@ import com.keytech.spring5webapp.Models.Publisher;
 public interface PublisherRepository extends CrudRepository<Publisher, Long>{
 
 	
-	
 }

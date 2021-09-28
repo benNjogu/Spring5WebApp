@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+
 @Entity
 public class Publisher {
 
@@ -16,26 +17,6 @@ public class Publisher {
 	private Long id;
 	private String name;
 	private String address;
-	
-	@ManyToMany
-	private Set<Book> books = new HashSet<>();
-
-	public Publisher() {
-		super();
-	}
-
-	public Publisher(String name, String address) {
-		super();
-		this.name = name;
-		this.address = address;
-	}
-
-	public Publisher(String name, String address, Set<Book> books) {
-		super();
-		this.name = name;
-		this.address = address;
-		this.books = books;
-	}
 
 	public Long getId() {
 		return id;
@@ -61,15 +42,4 @@ public class Publisher {
 		this.address = address;
 	}
 
-	public Set<Book> getBooks() {
-		return books;
-	}
-
-	public void setBooks(Set<Book> books) {
-		this.books = books;
-	}
-	
-	
-	
-	
 }
